@@ -11,7 +11,7 @@ try :
     masukan = int (input('Masukan pilihan : '))
     print ('')
 
-    while masukan > 4 or masukan < 0 : #mengecek inputan pemilihan menu
+    while masukan > 5 or masukan < 0 : #mengecek inputan pemilihan menu
         print ('Silahkan masukan angka yang ada pada menu.')
         masukan = int (input('Masukan pilihan : '))
         print ('')
@@ -276,57 +276,51 @@ try :
                 print('Hasilnya adalah : ',hexa)
                 print ('')
             
-            #HEXA TO BINER
+            ##HEXA TO BINER
             if menu == 2:
-                bin = input('Masukan biner :')
+                print('Masukan hexa : ')
+                hexdecnum = input()
+                binnum = ""
+                hexlen = len(hexdecnum)
+                i = 0
+                while i < hexlen:
+                    if hexdecnum[i] == '0':
+                        binnum = binnum + "0000"
+                    elif hexdecnum[i] == '1':
+                        binnum = binnum + "0001"
+                    elif hexdecnum[i] == '2':
+                        binnum = binnum + "0010"
+                    elif hexdecnum[i] == '3':
+                        binnum = binnum + "0011"
+                    elif hexdecnum[i] == '4':
+                        binnum = binnum + "0100"
+                    elif hexdecnum[i] == '5':
+                        binnum = binnum + "0101"
+                    elif hexdecnum[i] == '6':
+                        binnum = binnum + "0110"
+                    elif hexdecnum[i] == '7':
+                        binnum = binnum + "0111"
+                    elif hexdecnum[i] == '8':
+                        binnum = binnum + "1000"
+                    elif hexdecnum[i] == '9':
+                        binnum = binnum + "1001"
+                    elif hexdecnum[i] == 'a' or hexdecnum[i] == 'A':
+                        binnum = binnum + "1010"
+                    elif hexdecnum[i] == 'b' or hexdecnum[i] == 'B':
+                        binnum = binnum + "1011"
+                    elif hexdecnum[i] == 'c' or hexdecnum[i] == 'C':
+                        binnum = binnum + "1100"
+                    elif hexdecnum[i] == 'd' or hexdecnum[i] == 'D':
+                        binnum = binnum + "1101"
+                    elif hexdecnum[i] == 'e' or hexdecnum[i] == 'E':
+                        binnum = binnum + "1110"
+                    elif hexdecnum[i] == 'f' or hexdecnum[i] == 'F':
+                        binnum = binnum + "1111"
+                    i = i+1
 
-                for i in range (len(bin)) :
-                    if bin[i] != 'a' or bin[i] != 'b' or bin[i] != 'c' or bin[i] != 'd' or bin[i] != 'e' or bin[i] != 'f' :
-                        a = False;
-                    else :
-                        a = True
+                print("Hasil Binernya : ", binnum)
+                print('')
 
-                while a == False :
-                    for i in range (len(inputan)) :
-                        if inputan[i] != 'a' or inputan[i] != 'b' or inputan[i] != 'c' or inputan[i] != 'd' or inputan[i] != 'e' or inputan[i] != 'f' :
-                            a = False;
-                            break
-                        else :
-                            a = True
-                        
-                print ('')
-                for i in range (len(bin)):
-                    pembalik.insert(0, bin[i]) #membalikkan biner
-                for i in range (len(pembalik)):
-                    biner += int (pembalik[i])*(2**i)
-                
-
-                
-                for i in range (len(bin)):
-                    if bin[i] == 'A':
-                        hasil = 10
-                    if bin[i] == 'B':
-                        hasil = 11
-                    if bin[i] == 'C':
-                        hasil = 12
-                    if bin[i] == 'D':
-                        hasil = 13
-                    if bin[i] == 'E':
-                        hasil = 14
-                    if bin[i] == 'F':
-                        hasil = 15
-                    hexa += hasil*(16**i)
-
-                while hexa != 0:
-                    hasil = hexa % 2
-                    cetak.insert(0, str(hasil))
-                    hexa = hexa//2
-                    if hexa == 0:
-                        for i in range (len(cetak)):
-                            tampil +=  cetak[i]
-                print ('Hasilnya adalah : ',tampil)
-                print ('')
-            
             #HEXA TO OKTAL
             if menu == 3:
                 bin = input('Masukan hexa :')
@@ -360,45 +354,46 @@ try :
         elif masukan == 5:
             string = input("Masukkan string yang ingin dikonversi ke ASCII: ")
 
-            # STRING TO ASCII
+            # STRING - ASCII
             ascii_result = ""
             for char in string:
                 ascii_result += str(ord(char)) + " "
             print("ASCII: ", ascii_result)
 
-            # STRING TO DESIMAL
+            # STRING - DESIMAL
             decimal_result = ""
             for char in string:
                 decimal_result += str(ord(char)) + " "
             print("Desimal: ", decimal_result)
 
-            # STRING TO BINER
+            # STRING - BINER
             binary_result = ""
             for char in string:
                 binary_result += bin(ord(char))[2:] + " "
             print("Biner: ", binary_result)
 
-            # STRING TO OKTAL
+            # STRING - OKTAL
             octal_result = ""
             for char in string:
                 octal_result += oct(ord(char))[2:] + " "
             print("Oktal: ", octal_result)
 
-            # STRING TO HEXADESIMAL
+            # STRING - HEXADESIMAL
             hex_result = ""
             for char in string:
                 hex_result += hex(ord(char))[2:] + " "
-            print("Hexadesimal: ", hex_result) 
-        
-        print('***** UJIAN SEKOLAH DP1-DP3 *****')
+            print("Hexadesimal: ", hex_result)
+
+        print("===== Ujian Sekolah DP1-DP3 =====")
         print('Konversi dari :')
-        print ('1. Desimal')
-        print ('2. Biner')
-        print('3. Oktal')
-        print ('4. Hexadecimal')
-        print ('0. exit')
-        masukan = int (input('Masukan pilihan : '))
-        print ('')
-        
-except :
-    print ('Anda memasukan inputan yang salah. Maaf program terhenti.')
+        print('1. Desimal')
+        print('2. Biner')
+        print('3. OKTAL')
+        print('4. Hexadecimal')
+        print('5. ASCII')
+        print('0. exit')
+        masukan = int(input('masukan pilihan : '))
+        print('')
+
+except:
+    print('Anda Memasukan Inputan Dilarang!. Maaf Program Terhenti:)')
